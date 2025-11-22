@@ -1,9 +1,9 @@
-# 🖥️ Unity Live Wallpaper Plugin (C++ DLL)
+# 🖥️ Unity Wallpaper Plugin (C++ DLL)
 
 This repository is used to create a C++ DLL that is used as a Unity plugin to place a Unity application directly on the Windows background as a live wallpaper.
 The plugin handles WinAPI functions to adjust the Unity window for the WorkerW behind the desktop icons, effectively turning the unity build into a live animated wallpaper.
 
-![LiveWallpaper (1)](https://github.com/user-attachments/assets/0d4f7984-98d2-4bbf-9a78-7a6e29dc9323)
+![LiveWallpaper](https://github.com/user-attachments/assets/27bf7bcd-c5aa-4870-9a74-5a9d2b489d38)
 
 ## How It Works
 
@@ -45,7 +45,7 @@ public class WallpaperSetter : MonoBehaviour {
         // The Unity Win32 window does NOT fully exist at Start().
         // It takes about 0.5–1 seconds for Unity to:
         // create the actual Win32 window, assign the window title and apply borderless mode, resolution, etc.
-        // If the plugin is called too early, FindWindow will return nothing.  That's why we wait 1 second :)
+        // If the plugin is called too early, FindWindow will return nothing. That's why we wait 1 second :)
         Invoke(nameof(AttemptSetWallpaper), 1.0f);
     }
 
@@ -62,7 +62,7 @@ public class WallpaperSetter : MonoBehaviour {
             Debug.Log("Game successfully set as desktop wallpaper.");
         } else {
             // If the result is 0, it means the Unity window was not found or the DLL wasn't loaded correctly
-            Debug.LogError("Failed to set game as desktop wallpaper. Check DLL and Win32 interop.");
+            Debug.LogError("Failed to set game as desktop wallpaper.");
         }
     }
 }
