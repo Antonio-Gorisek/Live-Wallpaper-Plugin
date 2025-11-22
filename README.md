@@ -10,10 +10,10 @@ The plugin handles WinAPI functions to adjust the Unity window for the WorkerW b
 Unity build calls the DLL via DllImport, which finds the Unity window (by name) and uses Windows functions to create a hidden WorkerW layer on the desktop. The DLL then sets the Unity window to WorkerW, removes the program frame and title bar, and resizes it to fit the desktop, setting the game window as the background on the windows.
 
 ## Easy setup
-1) You can take the complete source code or directly the dll file that is already built in DLL folder `DLL\WallpaperPlugin.dll`  
-2) Insert `WallpaperPlugin.dll` into the `Assets\Plugins` folder in the Unity Editor and you are done with the DLL file.  
-3) You need the `WallpaperSetter.cs` script below this text. Copy the script and insert it into a GameObject in the scene.  
-4) ⚠️ Don't forget to change the value of `private string gameProductName`  
+1) You can take the source code or directly the dll file that is already built `DLL\WallpaperPlugin.dll`  
+2) Insert `WallpaperPlugin.dll` into the `Assets\Plugins` folder in the Unity Editor.
+3) You need the `WallpaperSetter.cs` Copy the script and insert it into a GameObject.  
+4) ⚠️ Don't forget to change the value of `private string gameProductName` ⚠️  
 5) After building and starting the project, the scene should run on the desktop as a live wallpaper.
 
 
@@ -34,7 +34,7 @@ public class WallpaperSetter : MonoBehaviour {
     // It MUST match the "Product Name" in Player Settings.
     // The C++ code uses FindWindow to locate the Unity window by this exact TITLE string.
     // Once found, it allows the C++ code to take control over the Unity window.
-    private string gameProductName = "YOUR PROJECT NAME";
+    private string gameProductName = "YOUR PRODUCT NAME";
 
     void Awake() {
         // Enable running in background. Without this, the game may pause when not focused.
